@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sobre nosotros | Mandopedia{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="aboutUs" class="container main-section">
+
+    <nav class="breadcrumb-panel">
+        <a href="/">Inicio</a>
+        <i class="fa-solid fa-angle-right fa-sm"></i>
+        <a href="/about-us">Sobre nosotros</a>
+    </nav>
+
+    <h2 class="center-align">Sobre nosotros</h2>
+
+    <section>
+        <p>Mandopedia es un proyecto sin ánimo de lucro, realizado por pura pasión de un fan de esta gran saga, para mi proyecto final
+            del grado superior. Espero que os guste a todos vosotros, fans que hacemos de esta una increíble comunidad en la que compartimos 
+            el conocimiento y amor que sentimos por esta serie.
+            Y a aquellos que no lo sean, poder acercaros un poco más e introduciros en este gran universo.
+        </p>
+        <p>Toda la información puesta en esta wiki ha sido escrita por mi, juandemarr&copy; inspirándome en ciertas partes de: 
+            <a href="https://disney.fandom.com/es/wiki/Disney_Wiki" target="_blank">disney.fandom.com/es/wiki/Disney_Wiki</a> y 
+            <a href="https://starwars.fandom.com/es/wiki/Portada" target="_blank">starwars.fandom.com/es/wiki/Portada</a>
+        </p>
+        <p>Me alegro mucho de poder formar parte de esta comunidad de fans, y espero poder seguir aportando más en un futuro. 
+            Un saludo para todos, y que la fuerza os acompañe, siempre.
+        </p>
+        <p class="signature">This Is The Way</p>
+    </section>
+</section>
+
+{{ include('_footer.html.twig')}}
+
+{% endblock %}

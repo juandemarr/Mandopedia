@@ -1,0 +1,92 @@
+<header class="main-header">
+<nav>
+    <div class="nav-wrapper">
+      <a data-target="menu" class="sidenav-trigger"><i class="fa-solid fa-bars fa-xl"></i></a>
+        
+      <a href="/" class="brand-logo"><img src="/img/logo.png" id="logo" alt="Mandopedia"/></a>
+        
+      <form action="/search" method="POST" id="searchForm">
+        <input type="search" palceholder="Buscar" name="search"/>
+        <button type="submit"><i class="fa-solid fa-magnifying-glass fa-md"></i></button>
+      </form>
+
+      <ul class="hide-on-med-and-down">
+        <li><a href="/category/1">Temporada 1</a></li>
+        <li><a href="/category/2">Temporada 2</a></li>
+        <li>
+          {% if app.user %}
+          <a class="dropdown-trigger" data-target='dropdown-user'><img class="circle" src="{{app.user.image}}" alt="{{app.user.username}}"/></a>
+          {% else %}
+          <a class="dropdown-trigger" data-target='dropdown-user'><i class="fa-solid fa-user fa-lg"></i></a>
+          {% endif %}
+        </li>
+
+        <ul id='dropdown-user' class='dropdown-content'>
+          {% if app.user %}
+          <li><a href="/user/{{app.user.id}}/edit">Editar perfil</a></li>
+
+          {% if is_granted("ROLE_ADMIN") or is_granted("ROLE_WRITTER") %}
+          <li><a href="/modification">Modificaciones</a></li>
+          {% endif %}
+          {% if is_granted("ROLE_ADMIN") %}
+          <li><a href="/admin">Administración</a></li>
+          {% elseif is_granted("ROLE_WRITTER") %}
+          <li><a href="/admin">Crear post</a></li>
+          {% endif %}
+
+          <li><a href="/logout">Cerrar sesión</a></li>
+            
+          {% else %}
+          <li><a href="/login">Iniciar sesión</a></li>
+          <li><a href="/register">Registrarse</a></li>
+          {% endif %}
+
+        </ul>
+
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="menu">
+    <div>
+      <li class="menu-button sidenav-close">
+        <a><i class="fa-solid fa-xmark fa-xl"></i></a>
+      </li>
+      <li><a href="/category/1">Temporada 1</a></li>
+      <li><a href="/category/2">Temporada 2</a></li>
+    </div>
+
+    <div>
+      <li>
+        {% if app.user %}
+        <a id="logo-mobile-user" class="dropdown-trigger" data-target='dropdown-mobil-user'><img class="circle" src="{{app.user.image}}" alt="{{app.user.username}}"/>{{app.user.username}}</a>
+        {% else %}
+        <a id="logo-mobile-user" class="dropdown-trigger" data-target='dropdown-mobil-user'><i class="fa-solid fa-user fa-lg"></i></a>
+        {% endif %}
+      </li>
+      {% if app.user %}
+        <ul id='dropdown-mobil-user' class='dropdown-content dropdown-logged-in'>
+          <li><a href="/user/{{app.user.id}}/edit">Editar perfil</a></li>
+          
+          {% if is_granted("ROLE_ADMIN") or is_granted("ROLE_WRITTER") %}
+          <li><a href="/modification">Modificaciones</a></li>
+          {% endif %}
+          {% if is_granted("ROLE_ADMIN") %}
+          <li><a href="/admin">Administración</a></li>
+          {% elseif is_granted("ROLE_WRITTER") %}
+          <li><a href="/admin">Crear post</a></li>
+          {% endif %}
+          
+          <li><a href="/logout">Cerrar sesión</a></li>
+        </ul>
+        {% else %}
+        <ul id='dropdown-mobil-user' class='dropdown-content dropdown-logged-out'>
+          <li><a href="/login">Iniciar sesión</a></li>
+          <li><a href="/register">Registrarse</a></li>
+        </ul>
+        {% endif %}
+        
+    </div>
+    
+  </ul>
+</header>

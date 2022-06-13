@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Mandopedia{% endblock %}</title>
+        <link rel="icon" href="/img/logo-icon.png">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Mandopedia - Wiki sobre la gran serie de Star Wars: The Mandalorian, hecha por Juandemarr&copy;">
+        <meta name="robots" content="noindex, nofollow">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        {% block stylesheets %}
+            {#<link rel="stylesheet" type="text/css" href="/jquery-ui/jquery-ui.min.css"/>
+            <link rel="stylesheet" type="text/css" href="/jquery-ui/jquery-ui.structure.min.css"/>
+            <link rel="stylesheet" type="text/css" href="/jquery-ui/jquery-ui.theme.min.css"/>#}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+            {# <link rel="stylesheet" type="text/css" href="/materialize/materialize.min.css"/> #}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+            {# <link rel="stylesheet" type="text/css" href="/animate-css/animate.min.css"/> #}
+            <link rel="stylesheet" type="text/css" href="/noty/noty.css"/>
+            <link rel="stylesheet" type="text/css" href="/noty/metroui.css"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+            {# <link rel="stylesheet" type="text/css" href="/fontawesome/css/fontawesome-v6-all.min.css"/> #}
+            {{ encore_entry_link_tags('app') }}
+            {# <link rel="stylesheet" type="text/css" href="build/app.css"/> #}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            {# <script src="/jquery/jquery.min.js"></script> #}
+            <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+            {#<script src="/jquery-ui/jquery-ui.min.js"></script>#}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            {#<script src="/materialize/materialize.min.js"></script>#}
+            <script src="/noty/noty.min.js"></script>
+            <script src="/app-mine-notifications.js"></script>
+            <script src="/app-mine.js" defer></script>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

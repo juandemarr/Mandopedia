@@ -1,0 +1,293 @@
+//COMMON HEADER
+.main-header{
+    position:absolute;
+    width:100%;
+
+    & nav{
+        background-color:map.get($bg,"header");
+        height:100px;
+        line-height:unset;
+        box-shadow: 0 2px 8px map.get($color,"pure-black");
+
+        @include response(m){
+            height:70px;
+        }
+
+        & .nav-wrapper{ //div
+            padding:1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            
+            @include response(m){
+                align-items:center;
+            }
+
+            & .brand-logo{
+                display: flex;
+                align-items: center;
+                font-size:inherit;
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+
+                @include response(m){
+                    position:unset;
+                    -webkit-transform: translateX(0);
+                    transform: translateX(0);
+                }
+
+                & #logo{
+                    width:12rem;
+                }
+            }
+
+            & .sidenav-trigger{ //hamburguer-menu
+                float:unset;
+                position:unset;
+                margin: 0;
+                height:unset;
+                line-height:unset;
+                display: flex;
+                align-items: center;
+                color:map.get($color,"white");
+
+                @include response(m){
+                    margin:0 2rem 0 0;
+                }
+                
+                @include response(l){
+                    display:none;
+                }
+
+                & i{
+                    height:unset;
+                    line-height:unset;
+
+                    &::before{
+                        position:relative;
+                        top:50%;
+                    }
+                }
+            }
+        }
+
+        & ul{ //menu horizontal on header
+
+            & li{
+                height: 100%;
+                display: flex;
+                align-items:center;
+
+                & a:not(#dropdown-user li a){
+                    line-height: 35px;
+                    height: 35px;
+                    border-bottom:2px solid transparent;
+                    margin:0 10px;
+                    padding:0px;
+                    display:flex;
+                    align-items:center;
+
+                    @include response(xl){
+                        margin:0 15px;
+                    }
+
+                    &:hover{
+                        background-color:unset;
+                        border-bottom:2px solid map.get($color,"white");
+                        transition:.2s ease-out;
+                    }
+                }
+                & .dropdown-trigger{
+                    border-bottom:0!important;
+
+                    &:hover{
+                        border-bottom:0!important;
+                    }
+                }
+            }
+
+            & img{
+                width:2.25rem;
+            }
+
+            //user menu
+            & .dropdown-content{ //ul
+                top:70px!important;
+                left:unset!important;
+                height:unset!important;
+                width:12rem!important;
+                right:2rem;
+                background-color:map.get($bg,"dark-grey");
+            
+                & li{
+            
+                    &:hover{
+                        background-color:map.get($bg,"light-grey");
+                    }
+
+                    & a{
+                        width:100%;
+                        color:map.get($color,"white");
+                    }
+                }
+            }
+        }
+    }
+    
+    //mobile menu
+    & .sidenav{
+        width:225px;
+        background-color:map.get($bg,"dark-grey");
+        height: 100%;
+        opacity:.99;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+        padding:1.8rem 0 0;
+
+        & li{
+            height:46px;
+            line-height:46px;
+
+            & a {
+                font-size:map.get($font,"sm");
+                color:map.get($color,"white");
+                padding:0;
+                margin:0 32px;
+                border-bottom:1px solid map.get($bg,"light-grey");
+                height:46px;
+                line-height:46px;
+                position:relative;
+
+                &:hover{
+                    background-color:transparent;
+                }
+
+                & i{
+                    float:unset;
+                    margin:0;
+                    color:map.get($color,"white");
+                }
+            }
+        }
+
+        & .dropdown-content{
+            position:relative;
+            top:unset!important;
+            background-color:map.get($bg,"light-grey");
+
+            &.dropdown-logged-in{
+                bottom: 270px !important;
+            }
+
+            &.dropdown-logged-out{
+                bottom: 160px !important;
+            }
+
+            & li{
+                height:46px;
+                line-height:46px;
+
+                &:hover{
+                    background-color:map.get($bg,"light-grey");
+                }
+            }
+        }
+
+        & #logo-mobile-user{
+            position: relative;
+            bottom: 15px;
+            border-bottom:0;
+            display:flex;
+            align-items:center;
+        }
+
+        & img{
+            width:2.75rem;
+            margin:0 0.5rem 0 0;
+        }
+    }
+}
+
+#searchForm{
+    display:flex;
+    align-items:center;
+    margin:0.65rem auto 0;
+    position:relative;
+    top:50%;
+    height:2.5rem;
+
+    @include response(m){
+        top:0;
+        margin:0 0 0 15%;
+    }
+
+    & input[type="search"]{
+        width: 14rem;
+        background-color: transparent;
+        border-radius: 10px;
+        border: 2px solid map.get($color,"gold");
+        padding: 0.35rem 0.5rem;
+        height: 1rem;
+        color: map.get($color,"white");
+        margin: 0;
+
+        @include response(l){
+            width: 14rem;
+        }
+        
+        &:focus{
+            box-shadow:none;
+        }
+
+        @include response(m){
+            top:0;
+        }
+    }
+
+    & button{
+        display: block;
+        height: 2.5rem;
+        padding: 0.25rem;
+        background-color: transparent;
+        border: none;
+        cursor:pointer;
+        margin:0 0 0 0.25rem;
+
+        & i{
+            line-height: 2.25rem;
+            height: 2.25rem;
+            color:map.get($color,"gold-light");
+        }
+    }
+}
+
+.header-no-background{ //added with jquery. Header only on main page
+    & nav{
+        background-color:transparent;
+        box-shadow: 0 2px 8px map.get($color,"black");
+    }
+}
+
+//REGISTER AND LOGIN SPECIAL HEADER
+.header-login{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    & img{
+        width:6rem;
+        margin:1.5rem 0 0;
+
+        @include response(m){
+            width:7.5rem;
+            margin:2rem 0 0;
+        }
+
+        @include response(l){
+            width:10rem;
+        }
+    }
+
+}

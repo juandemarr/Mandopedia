@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro | Mandopedia{% endblock %}
+
+{% block body %}
+
+    {% if error %}
+    <script>
+        let error = '{{error}}';
+        errorNotification(error);
+    </script>
+    {% endif %}
+
+    {{ include('_header_login.html.twig')}}
+
+    <section id="register" class="container main-section-alternative">
+        <h2 class="center-align">Registro Mandopedia</h2>
+        <div class="space-between">
+            {{ form_start(registrationForm, {'attr' : {'class' : 'form form-login-size form-register-extra'}}) }}
+                <div class="block-form">
+                    <p class="legend">Datos de acceso</p>
+                    {{ form_row(registrationForm.username) }}
+                    {{ form_row(registrationForm.email) }}
+                    {{ form_row(registrationForm.plainPassword) }}
+                    {{ form_row(registrationForm.plainPassword2) }}
+                </div>
+
+                <div class="block-form">
+                    <p class="legend">Datos personales</p>
+                    {{ form_row(registrationForm.firstname) }}
+                    {{ form_row(registrationForm.lastname) }}
+
+                </div>
+                {{ form_row(registrationForm.agreeTerms, {'attr' : {'class' : 'input-check'}}) }}
+
+                <button type="submit" class="btn btn-gold waves-effect waves-gold disabled">Registrarse</button>
+
+                <div class="other-login-register">
+                    <p>¿Ya tienes cuenta?</p>
+                    <a class="btn btn-gold-inverted waves-effect waves-gold" href="/login">Iniciar sesión</a>
+                </div>
+            {{ form_end(registrationForm) }}
+
+            <img src="img/kuiil.png" alt="Kuiil" class="imgForm"/>
+        </div>
+    </section>
+
+    {{ include('_footer.html.twig')}}
+
+{% endblock %}

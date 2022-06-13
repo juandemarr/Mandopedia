@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "mandalore-laser";
+    src: url("../fonts/mandalorelaser.ttf");
+}
+
+@font-face {
+    font-family: "mandalore";
+    src: url("../fonts/mandalore.ttf");
+}
+
+@font-face {
+    font-family: "body";
+    src: url("../fonts/HindVadodara-Regular.ttf");
+}
+//MAP
+$bg:(
+    "background":#1c1717,
+    "header":#2f2e2e,
+    "light-grey":#97a2b3,
+    "dark-grey":#475262,
+    "red":#aa160e,
+    "red-hover":#84130d,
+    "red-waves":rgba(170, 22, 14, 0.4),
+    "green":#009d5e,
+    "green-hover":#007747,
+    "green-waves":rgba(0, 157, 94, 0.4),
+    "yellow":#C8A12B,
+    "disabled":#887c59,
+);
+$color:(
+    "gold":#C8A12B,
+    "gold-light":#E0C677,
+    "gold-dark":#A6872B,
+    "gold-dark-gradient":#2d2513,
+    "white":#f6f6f6,
+    "black":#0E0E0E,
+    "pure-black":#000,
+    "red":#e10026,
+);
+$font:(
+    "xs":11px,
+    "s":13px,
+    "sm":14px,
+    "m":15px,
+    "l":17px,
+    "card-title-xs":16px,
+    "card-title-s":20px,
+    "card-title-m":24px,
+    "h2-s":2.25rem,
+    "h2-m":2.63rem,
+    "h2-l":3rem,
+);
+
+.fa-md{
+    font-size:1.2em;
+}
+
+// MIXINS
+@mixin response($var){
+    @if($var == "m"){
+        @media (min-width:601px){
+            @content;
+        }
+    }@else if($var == "l"){
+        @media (min-width:993px){
+            @content;
+        }
+    }@else if($var == "xl"){
+        @media (min-width:1201px){
+            @content;
+        }
+    }
+    
+}

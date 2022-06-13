@@ -1,0 +1,30 @@
+#privacy, #cookies, #terms, #aboutUs{
+
+    & section{
+
+        & a{
+            color:map.get($color,"white");
+            text-decoration: underline;
+        }
+
+        & ul{
+            padding: 0 0 0 1.1rem;
+            
+            & > li{
+                list-style-type: square;
+                padding: 0 0 0 0.25rem;
+            }
+        }
+    }
+
+    & .signature{
+        text-align:center;
+        font-family:"mandalore",sans-serif;
+        font-size:1.75rem;
+        color:map.get($color,"gold-light");
+    
+        @include response(m){
+            font-size:2rem;
+        }
+    }
+}

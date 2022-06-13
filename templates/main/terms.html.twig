@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Condiciones de uso | Mandopedia{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="terms" class="container main-section">
+
+    <nav class="breadcrumb-panel">
+        <a href="/">Inicio</a>
+        <i class="fa-solid fa-angle-right fa-sm"></i>
+        <a href="/privacy">Condiciones de uso</a>
+    </nav>
+
+    <h2 class="center-align">Condiciones de uso</h2>
+
+    <section>
+        <p>Desde Mandopedia queremos mantener un entorno respetuoso para todos y, por ello, debes seguir estas 
+            normas de conducta básicas:</p>
+        <ul>
+            <li>No hacer un uso inadecuado de los servicios ni dañarlos, interrumpirlos o interferir con ellos; 
+                por ejemplo, usándolos o accediendo a ellos de forma fraudulenta o engañosa, enviando spam, 
+                realizando ataques de piratería o eludiendo nuestros sistemas o medidas de protección.</li>
+            <li>Respetar los derechos de los demás, incluidos los de privacidad y propiedad intelectual.</li>
+        </ul>
+        <p>Aunque te autorizamos a usar nuestros servicios, conservamos los derechos de propiedad intelectual 
+            sobre ellos.</p>
+    </section>
+</section>
+
+{{ include('_footer.html.twig')}}
+
+{% endblock %}

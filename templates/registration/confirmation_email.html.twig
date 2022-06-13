@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+
+        *{
+            box-sizing:border-box;
+        }
+
+        .mainEmail{
+            background-color:#1c1717;
+            color:#ebebeb;
+            font-family:sans-serif;
+            padding:1rem 2rem;
+            font-size:.9rem;
+        }
+        .block-button{
+            display:flex;
+            justify-content:center;
+            margin:2rem auto;
+        }
+        .link{
+            font-size: 1.2rem;
+            font-style: italic;
+            padding:0.75rem 1rem;
+            background-color:#A6872B;
+            color:#ebebeb!important;
+            text-decoration:none;
+            border:none;
+            border-radius:2px;
+            margin-left:40%;
+            width:auto;
+        }
+        .bold{
+            font-weight:bold;
+        }
+        .text-center{
+            text-align:center;
+        }
+        .center{
+            margin:0 auto;
+        }
+        h1,h2,h3{
+            color:#C8A12B;
+        }
+        .block-img{
+            height:10rem;
+            
+        }
+        .block-img img{
+            width:100%;
+            object-fit:cover;
+        }
+        .block-button{
+            margin:1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+<section class="mainEmail">
+    <h1 class="text-center">Hello there! Por favor confirma tu dirección de correo electrónico</h1>
+
+    <p>No te pierdas lo último de Mandopedia, confirma tu registro y entra a formar parte de esta gran comunidad.</p>
+    
+    <p>Confirma tu dirección de correo electrónico aquí:</p>
+    <div class="block-button">
+        <a class="link" href="{{ signedUrl }}">Verificar email</a> 
+    </div>        
+    <p>Este enlace caducará en {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.</p>
+
+    <div>
+        <p>No solo obtendrás información fehaciente y de calidad, sino que también podrás editar cualquier ficha 
+            de personaje, vehículos o planetas, siempre respentando con las normas de conducta del sitio web.</p>
+
+        <p>Honra el credo, amplía la información y verás tu aporte publicado.</p>
+    </div>
+    {# <div class="block-img"> {#poner ruta del dominio y carpeta donde esten guardadas las imagenes
+        <img src="./img/theway.jpg" alt="Este es el camino"/>
+    </div> #}
+    <h3>¡Bienvenido mandaloriano/a!</h3>
+    <h3 class="text-center">Este es el camino</h3>
+</section>
+</body>
+</html>

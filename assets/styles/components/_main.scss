@@ -1,0 +1,144 @@
+.video-wrapper{
+    background-color:map.get($color,"black");
+    position: absolute;
+    width:100%;
+    height:100%;
+    z-index:999;
+
+    & #video-logo{
+        width:100%;
+        height:100%;
+        object-fit:contain;
+    }
+}
+
+#main{
+    height:100vh;
+    background-image:url("../../img/sectionhero.jpeg");
+    background-size:cover;
+    background-position:center;
+}
+.main-page-categories{
+    height: calc(100vh - 100px);
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    padding: 0 0 0 3rem;
+
+    @include response(m){
+        height: calc(100vh - 70px);
+    }
+
+    @include response(l){
+        flex-direction:row;
+        justify-content:flex-start;
+        align-items:center;
+    }
+}
+
+.list-of-cards{ //section
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap:1rem;
+
+    @include response(m){
+        grid-template-columns: repeat(4,1fr);
+        grid-gap:2rem;
+    }
+
+    @include response(l){
+        grid-template-columns: repeat(5,1fr);
+    }
+}
+
+.card-size-main{
+    width:10rem;
+    height:13rem;
+    margin:0 0 2rem;
+
+    @include response(m){
+        width:11rem;
+        height:14rem;
+    }
+
+    @include response(l){
+        margin:0 2rem 0 0;
+    }
+
+    & .card-element-title{
+        font-size:map.get($font,"card-title-s");
+
+        @include response(m){
+            font-size:map.get($font,"card-title-m");
+        }
+    }
+
+    & .back{
+        padding:1rem;
+    }
+}
+
+.card-size-category{
+    aspect-ratio:3/4;
+
+    & .card-element-title{
+        font-size:map.get($font,"card-title-xs");
+
+        @include response(m){
+            font-size:map.get($font,"card-title-s");
+        }
+    }
+}
+
+.a-card{
+    display:inline-block;
+
+    &:hover .card-element{
+        transform:perspective(600px) rotateY(180deg);
+    }
+
+    & .card-element{
+        border-radius:10px;
+        position:relative;
+        border:4px solid map.get($color,"white");
+        transform-style: preserve-3d; //for the childrens to have their own 3d
+        transform: perspective(600px) rotateY(0deg);
+        transition: all ease-out .5s;
+
+        & .frontal, & .back{
+            width:100%;
+            height:100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            backface-visibility: hidden;//appear the back of the image
+            -moz-backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        & img{
+            position:absolute;
+            object-fit:cover;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            border-radius:6px;
+        }
+
+        & .card-element-title{
+            z-index:9;
+            position:relative;
+            color:map.get($color,"white");
+        }
+
+        & .back{
+            position:absolute;
+            top:0;
+            color:map.get($color,"white");
+            transform:perspective(600px) rotateY(180deg);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(0,0,0,0.5));
+        }
+    }
+}

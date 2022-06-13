@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mandopedia{% endblock %}
+
+{% block body %}
+
+{% if allModifications %}
+    <script>
+        showModifications();
+    </script>
+{% endif %}
+
+<div class="video-wrapper">
+    <video id="video-logo" autoplay muted>
+        <source src="img/video-background.mp4" type="video/mp4">
+    </video>
+</div>
+
+{{ include('_header.html.twig')}}
+
+<section id="main">
+    <section class="main-section">
+
+        <section class="main-page-categories">
+            {% for category in categories %}
+            <a class="a-card" href="category/{{category.id}}">
+                <div class="card-element card-size-main">
+                    <img src="/img/category/{{category.imageCategory}}" alt="personajes"/>
+                    <div class="frontal">
+                        <p class="card-element-title">{{category}}</p>
+                    </div>
+                    <div class="back">
+                        <p>{{category.descriptionCategory}}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </section>
+    </section>
+</section>
+
+{% endblock %}

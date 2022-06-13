@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Iniciar sesion | Mandopedia{% endblock %}
+
+{% block body %}
+
+{% if error %}
+    {% set errorTranslate = error.messageKey|trans(error.messageData, 'security') %}
+    <script>
+        let error = '{{errorTranslate}}';
+        errorNotification(error);
+    </script>
+{% endif %}
+
+{% if info %}
+    <script>
+        let info = '{{info}}';
+        infoNotification(info);
+    </script>
+{% endif %}
+
+{% if warning %}
+    <script>
+        let warning = '{{warning}}';
+        warningNotification(warning);
+    </script>
+{% endif %}
+
+{{ include('_header_login.html.twig')}}
+
+<section id="login" class="container main-section-alternative">
+    <h2 class="center-align">Iniciar sesión Mandopedia</h2>
+    <div class="space-between">
+        <form method="post" class="form form-login-size">
+            <p class="legend">Datos de acceso</p>
+            <div class="input-field">
+                <label for="loginUsername">Nombre de usuario</label>
+                <input type="text" name="username" id="loginUsername" autocomplete="username" required autofocus>
+            </div>
+            <div class="input-field">
+                <label for="loginPassword">Contraseña</label>
+                <input type="password" name="password" id="loginPassword" autocomplete="current-password" required>
+            </div>
+        
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+        
+            {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
+        
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+            #}
+        
+            <button type="submit" class="btn btn-gold waves-effect waves-gold disabled">Iniciar sesión</button>
+            {# <a href="/recover_password" id="linkRecoverPassword">¿Has olvidado tu contraseña?</a> #}
+
+            <div class="other-login-register">
+                <p>¿No tienes cuenta?</p>
+                <a class="btn btn-gold-inverted waves-effect waves-gold" href="/register">Registrarse</a>
+            </div>
+        </form>
+
+        <img src="img/armera.png" alt="La Armera" class="imgForm"/>
+
+    </div>
+</section>
+
+{{ include('_footer.html.twig')}}
+    
+{% endblock %}

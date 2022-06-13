@@ -1,0 +1,108 @@
+footer{
+    flex:0 0 auto;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin:5rem auto 0;
+    padding:2rem 0;
+    width:90%;
+    border-top:2px solid map.get($color,"gold-dark");
+
+    @include response(m){
+        width:85%;
+    }
+    
+    @include response(l){
+        margin:8rem auto 0;
+        padding:3rem 0;
+    }
+    
+    & section{
+
+        &.footer-links{
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+
+            @include response(l){
+                width:50%;
+                justify-content:space-between;
+            }
+
+            & div{
+                
+                display:flex;
+                flex-direction:column;
+
+                & a{
+                    width:max-content;
+                    color:map.get($color,"white");
+
+                    &:not(a:last-child){
+                        margin:0 0 1rem;
+                    }
+                }
+            }
+        }
+
+        &.footer-copyright{
+            width:100%;
+            display:flex;
+            flex-wrap:wrap;
+            flex-direction:row;
+
+            @include response(m){
+                justify-content:space-between;
+            }
+
+            @include response(l){
+                font-size:map.get($font,"m");
+                width:48%;
+                flex-direction:column;
+                align-items:flex-end;
+                align-self:flex-end;
+            }
+
+            & p{
+                margin:0;
+            }
+
+            & .icons-social-media{
+                width:100%;
+                display:flex;
+                justify-content:center;
+                margin:1rem 0;
+
+                @include response(l){
+                    margin: 0 0 1rem;
+                    justify-content:flex-end;
+                }
+
+                & a:not(a:last-child){
+                    margin:0 1rem 0 0;
+                }
+
+                & a{
+                    color:map.get($color,"white");
+                }
+            }
+        }
+    }
+}
+
+.footer-admin{
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    padding:1rem;
+    margin:0 auto;
+    font-size:map.get($font,"xs");
+
+    @include response(m){
+        font-size:map.get($font,"s");
+    }
+
+    @include response(l){
+        font-size:map.get($font,"m");
+    }
+}

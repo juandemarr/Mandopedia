@@ -1,0 +1,33 @@
+{#{% extends 'base.html.twig' %}
+
+{% block title %}Modificación | Mandopedia{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="modification" class="container main-section">
+
+    <nav class="breadcrumb-panel">
+        <a href="/">Inicio</a>
+        <i class="fa-solid fa-angle-right fa-sm"></i>
+        <a href="/modification">Modificaciones</a>
+        <i class="fa-solid fa-angle-right fa-sm"></i>
+        <a href="/{{ modification.id }}">{{ modification.id }}</a>
+    </nav>
+
+    <h2 class="center-align">Nuevo contenido</h2>
+
+    <p>{{ modification.textModification }}</p>
+
+    <div class="button-container">
+        <button class="btn btn-autowidth btn-green waves-effect waves-green">Aprobar</button>
+        {{ include('modification/_delete_form.html.twig') }}
+    </div>
+
+</section>
+
+{{ include('_footer.html.twig')}}
+
+{% endblock %}
+#}

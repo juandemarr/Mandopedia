@@ -1,0 +1,331 @@
+@use "sass:map";
+@import 'base';
+
+@keyframes imagePublication{
+    0% {transform:rotateY(-20deg) rotateX(6deg)}
+    50% {transform:rotateY(20deg) rotateX(6deg)}
+    100% {transform:rotateY(-20deg) rotateX(6deg)}
+}
+
+@keyframes opacityUp {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    font-family:"body", sans-serif;
+    font-size:map.get($font,"s");
+
+    @include response(m){
+        font-size:map.get($font,"m");
+    }
+
+    @include response(l){
+        font-size:map.get($font,"l");
+    }
+}
+
+body{
+    opacity: 0;
+    animation: opacityUp 0.3s linear forwards;
+    background-color:map.get($bg,"background");
+    color:map.get($color,"white");
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    scroll-behavior: smooth;
+}
+
+.main-section{
+    flex:1 0 auto;
+    margin-top:100px;
+
+    @include response(m){
+        margin-top:70px;
+    }
+}
+
+.main-section-alternative{
+    flex:1 0 auto;
+}
+
+.space-between{
+    display:flex;
+    justify-content:space-between;
+}
+
+.d-none{
+    display:none
+}
+
+.no-borders{
+    border:none;
+}
+
+.with-borders{
+    border:1px solid map.get($color,"gold-dark");
+    border-radius:2px;
+}
+
+h1,h2{
+    font-family:"mandalore-laser",sans-serif;
+    background-image:linear-gradient(to bottom, map.get($color,"gold-light"), map.get($color,"gold-dark-gradient"));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip:text;
+    letter-spacing:1px;
+}
+
+h2{
+    margin:0 0 1.25rem;
+    font-size:map.get($font,"h2-s");
+
+    @include response(m){
+        font-size:map.get($font,"h2-m");
+    }
+
+    @include response(l){
+        font-size:map.get($font,"h2-l");
+        margin:0 0 1.75rem;
+    }
+}
+
+label{
+    font-size:0.9rem;
+}
+
+a{
+    color:map.get($color,"gold");
+}
+
+p{
+    margin:0.5rem 0;
+}
+
+.p-gold{
+    color:map.get($color,"gold");
+}
+
+.p-gold-light{
+    color:map.get($color,"gold-light");
+}
+
+.bold{
+    font-weight:bold;
+}
+
+.fa-2xl{
+    line-height: unset;
+}
+
+.parallax-container{
+    height:200px;
+
+    @include response(m){
+        height:225px;
+    }
+}
+
+//BREADCRUMBS
+.breadcrumb-panel{ //nav
+    height:30px;
+    line-height:30px;
+    margin:0.5rem 0;
+    background-color:inherit;
+    display:flex;
+    align-items:center;
+    box-shadow:none;
+
+    & a{
+        font-size:inherit;
+        color:map.get($color,"gold");
+        margin:0 0.25rem 0 0;
+    }
+
+    & i{
+        line-height:1;
+        height:auto;
+        color:map.get($color,"gold-light");
+        margin:0 0.25rem 0 0;
+    }
+}
+
+.button-container{
+    display:flex;
+    justify-content:flex-end;
+    margin:0.5rem 0;
+
+    & a:not(& a:last-child){
+        margin:0 0.5rem 0 0;
+    }
+
+    & button:not(& button:last-child){
+        margin:0 0.5rem 0 0;
+    }
+}
+
+//MATERIALIZE
+.btn{
+    height: 28px;
+    line-height: 28px;
+    width:100%;
+    text-transform: unset;
+    font-size:map.get($font,"s");
+
+    @include response(m){
+        height:36px;
+        line-height:36px;
+        font-size:map.get($font,"sm");
+    }
+
+    @include response(l){
+        width:100%;
+        font-size:map.get($font,"m");
+    }
+}
+
+.btn-autowidth{
+    width:auto;
+}
+
+.gold{
+    background-color:map.get($color,"gold");
+}
+
+.btn-gold{
+    background-color:map.get($color,"gold");
+
+    &:focus{
+        background-color:map.get($color,"gold");
+    }
+
+    &:hover{
+        background-color:map.get($color,"gold-dark");
+    }
+}
+
+.btn-gold-inverted{
+    background-color:transparent;
+    border:2px solid map.get($color,"gold");
+    line-height:24px;
+
+    &:focus{
+        background-color:transparent;
+    }
+
+    &:hover{
+        background-color:transparent;
+    }
+
+    @include response(m){
+        line-height:30px;
+    }
+}
+.waves-effect.waves-gold .waves-ripple {
+    background-color:map.get($color,"gold-light");
+}
+
+.btn-red{
+    background-color:map.get($bg,"red");
+
+    &:focus{
+        background-color:map.get($bg,"red");
+    }
+
+    &:hover{
+        background-color:map.get($bg,"red-hover");
+    }
+}
+
+.waves-effect.waves-red .waves-ripple {
+    background-color:map.get($color,"red-waves");
+}
+
+.btn-green{
+    background-color:map.get($bg,"green");
+
+    &:focus{
+        background-color:map.get($bg,"green");
+    }
+
+    &:hover{
+        background-color:map.get($bg,"green-hover");
+    }
+}
+
+.waves-effect.waves-green .waves-ripple {
+    background-color:map.get($color,"green-waves");
+}
+
+.input-field > label{
+    top:1px;
+}
+
+//NOTY
+.noty_progressbar{
+    opacity:0.4!important;
+    height:3px!important;
+}
+
+.noty_theme__metroui.noty_type__error {
+    background-color: map.get($bg,"red");
+    color:map.get($color,"white");
+}
+
+.noty_theme__metroui.noty_type__success{
+    background-color: map.get($bg,"green");
+}
+
+.noty_theme__metroui.noty_type__warning{
+    background-color: map.get($bg,"yellow");
+}
+
+
+//ANIMATE CSS
+.animate__animated.animate__rubberBand {
+    --animate-duration: .75s;
+}
+
+//FORM VALIDATE JS
+.correct{
+    border-bottom:1px solid map.get($bg,"green")!important;
+    box-shadow:0 1px 0 0 map.get($bg,"green")!important;
+}
+.error{
+    border-bottom:1px solid map.get($bg,"red")!important;
+    box-shadow:0 1px 0 0 map.get($bg,"red")!important;
+}
+#login .disabled, #register .disabled, #recoverPassword .disabled{//neeed to repeat the id for overwritte the id on materialize
+    background-color:map.get($bg,"disabled")!important;
+}
+
+.container{
+    width:90%;
+
+    @include response(m){
+        width:85%;
+    }
+
+    @include response(l){
+        width:75%;
+    }
+}
+
+@import 'components/header';
+@import 'components/register_login';
+@import 'components/main';
+@import 'components/showPublication';
+@import 'components/modifications';
+@import 'components/privacy_cookies';
+@import 'components/editUser';
+@import 'components/footer';

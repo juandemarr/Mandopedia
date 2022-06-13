@@ -1,0 +1,133 @@
+#register, #login{
+
+    & h2{
+        margin:0.25rem 0 0.75rem;
+
+        @include response(l){
+            margin:0 0 2rem;
+        }
+    }
+
+    //error messages
+    & ul li{
+        color:map.get($color,"red");
+    }
+
+}
+
+.form-login-size{
+    width:100%;
+
+    @include response(m){
+        width:42%;
+    }
+
+    & .other-login-register{
+        margin:2rem 0 0;
+
+        & p{
+            margin:0 0 -0.5rem; //for margin in ommon button on form
+        }
+    }
+}
+
+.imgForm{
+    display:none;
+    
+    @include response(m){
+        display:inline;
+        width:55%;
+        height:max-content;
+    }
+}
+
+.form-register-extra{
+    & .block-form{
+        margin:0 0 1.25rem;
+
+        @include response(l){
+            margin:0 0 1.75rem;
+        }
+    }
+}
+
+.form{
+    
+    & input, & label{
+        color:map.get($color,"white");
+    }
+
+    & input:not([type="checkbox"]){
+        height:2.5rem;
+        margin:0 0 6px;
+        font-size:inherit;
+
+        @include response(l){
+            height:2.75rem;
+        }
+    }
+
+    & input:not(.browser-default):focus:not([readonly]):not([type="checkbox"]){
+        border-bottom:1px solid map.get($color,"gold");
+        box-shadow:0 1px 0 0 map.get($color,"gold");
+    }
+
+    input[type="checkbox"]{
+        opacity: 1;
+        pointer-events: all;
+        width:13px;
+        height:13px;
+        
+        @include response(l){
+            width:18px;
+            height:18px;
+        }
+    }
+
+    & button, & a.btn{
+        margin:1rem 0 0;
+    }
+
+    & .legend{
+        color:map.get($color,"gold");
+        margin: 0 0 10px;
+    }
+
+    & .block-checkbox{
+        display:flex;
+        align-items:center;
+
+        & input[type="checkbox"]{
+            position:relative;
+            order:1;
+            margin:0 0.25rem 0 0;
+
+            @include response(l){
+                margin:0 0.5rem 0 0;
+            }
+        }
+
+        & label{
+            order:2;
+        }
+    }
+}
+
+#linkRecoverPassword{
+    color:map.get($color,"white");
+    font-style: italic;
+    
+    @include response(s){
+        font-size:map.get($font,"xs");
+    }
+
+    @include response(m){
+        font-size:map.get($font,"s");
+    }
+
+    @include response(l){
+        font-size:map.get($font,"m");
+    }
+}
+    
+

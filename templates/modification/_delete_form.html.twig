@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_modification_delete', {'id': modification.id}) }}" onsubmit="return confirm('¿Quieres elminar esta modificación?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ modification.id) }}">
+    <button class="btn btn-autowidth btn-red waves-effect waves-red">Eliminar</button>
+</form>

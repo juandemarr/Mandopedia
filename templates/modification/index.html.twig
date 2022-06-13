@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modificaciones | Mandopedia{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="listModification" class="container main-section">
+
+    <nav class="breadcrumb-panel">
+        <a href="/">Inicio</a>
+        <i class="fa-solid fa-angle-right fa-sm"></i>
+        <a href="/modification">Modificaciones</a>
+    </nav>
+
+    <h2 class="center-align">Listado de modificaciones</h2>
+
+    {% for modification in modifications %}
+        <div id="{{modification.id}}">
+            <p class="bold p-gold">Modificacion ID: {{ modification.id }}</p>
+            <p>{{modification.textModification}}</p>
+            <p><span class="p-gold-light">Nuevo contenido:</span> {{modification.newText}}</p>
+
+            <div class="button-container">
+                <a data-id-post="{{modification.post.id}}" data-id-mod="{{modification.id}}" class="btn btn-autowidth btn-green waves-effect waves-green">Aprobar</a>
+                {{ include('modification/_delete_form.html.twig') }}
+            </div>
+        </div>
+    {% else %}
+        <p>No hay nuevo contenido de los usuarios</p>
+    {% endfor %}
+    
+</section>
+
+{{ include('_footer.html.twig')}}
+
+{% endblock %}

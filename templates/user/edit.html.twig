@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar usuario | Mandopedia{% endblock %}
+
+{% block body %}
+
+    {% if error %}
+    <script>
+        let error = '{{error}}';
+        errorNotification(error);
+    </script>
+    {% endif %}
+
+    {{ include('_header.html.twig')}}
+
+    <section id="editUser" class="container main-section">
+
+        <nav class="breadcrumb-panel">
+            <a href="/">Inicio</a>
+            <i class="fa-solid fa-angle-right fa-sm"></i>
+            <a href="/user/{{app.user.id}}/edit">Editar perfil</a>
+        </nav>
+
+        <h2 class="center-align">Editar perfil</h2>
+
+        <div class="space-between">
+            <div class="form-login-size">
+            {{ include('user/_form.html.twig') }}
+            {{ include('user/_delete_form.html.twig') }}
+            </div>
+            <img class="imgForm" src="/img/bo-katan.png" alt="Bo-Katan"/>
+        </div>
+    </section>
+
+    {{ include('_footer.html.twig')}}
+
+{% endblock %}

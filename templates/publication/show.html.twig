@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{publication.namePublication}} | Mandopedia{% endblock %}
+
+{% block body %}
+
+{% if error %}
+    <script>
+        let error = '{{errorTranslate}}';
+        errorNotification(error);
+    </script>
+{% endif %}
+
+{% if warning %}
+    <script>
+        let warning = '{{warning}}';
+        warningNotification(warning);
+    </script>
+{% endif %}
+    
+{{ include('_header.html.twig')}}
+
+<section id="showPublication" class="container main-section">
+
+    <nav class="breadcrumb-panel">
+        <a href="/">Inicio</a>
+        <i class="fa-solid fa-angle-right fa-sm"></i>
+        <a href="/category/{{publication.getCategory.id}}">{{publication.getCategory.nameCategory}}</a>
+        <i class="fa-solid fa-angle-right fa-sm"></i>
+        <a href="/publication/{{publication.id}}">{{publication.namePublication}}</a>
+    </nav>
+
+    <h2 class="center-align">{{publication.namePublication}}</h2>
+
+    <section id="contentPublication">
+        <div class="img-publication">
+            <img src="/img/publication/{{publication.imagePublication}}" />
+        </div>
+
+        <div class="text-publication">
+            <form action="{{ path('app_modification_new', {'id': publication.id}) }}" method="POST" id="formModification">
+                <textarea name="textModification" id="textarea-modification" class="no-borders" disabled>{{publication.textPublication}}</textarea>
+                {% if app.user %}
+                <div class="button-container">
+                    <button type="submit" class="btn btn-autowidth btn-green waves-effect waves-green d-none" id="btnSaveModification">Guardar</button>
+                    <button class="btn btn-autowidth btn-red waves-effect waves-red d-none" id="btnCancelModification">Cancelar</button>
+                </div>
+                <button class="btn btn-autowidth btn-gold waves-effect waves-gold" id="btnCreateModification">Editar</button>
+                {% endif %}
+            </form>
+        </div>
+    </section>
+
+</section>
+
+{{ include('_footer.html.twig')}}
+
+{% endblock %}

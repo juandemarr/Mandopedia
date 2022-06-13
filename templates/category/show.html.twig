@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{category.nameCategory}} | Mandopedia{% endblock %}
+
+{% block body %}
+
+{{ include('_header.html.twig')}}
+
+<section id="showCategory" class="container main-section">
+
+    <nav class="breadcrumb-panel">
+        <a href="/">Inicio</a>
+        <i class="fa-solid fa-angle-right fa-sm"></i>
+        <a href="/category/{{category.id}}">{{category.nameCategory}}</a>
+        <i class="fa-solid fa-angle-right fa-sm"></i>
+    </nav>
+
+    <h2 class="center-align">{{category.nameCategory}}</h2>
+
+    <section class="list-of-cards">
+        {% for publication in category.getPublications %}
+
+        <a class="a-card" href="/publication/{{publication.id}}/">
+            <div class="card-element card-size-category">
+                <img src="/img/publication/{{publication.imagePublication}}" alt="{{publication.namePublication}}"/>
+                <div class="frontal"></div>
+                <div class="back">
+                    <p class="card-element-title">{{publication.namePublication}}</p>
+                </div>
+            </div>
+        </a>
+
+        {% endfor %}
+    </section>
+    
+
+</section>
+
+{{ include('_footer.html.twig')}}
+
+{% endblock %}
