@@ -6,11 +6,11 @@ A wiki where you can see publications and edit them.
 
 As an admin you can create, edit and delete categories, publications and users (less the password). You can aprove or disapprove editions of publications already made.
 
-As a writter you can approve editions by users (using ajax) and create publications.
+As a writter you can approve editions by users (using ajax), delete them and create publications.
 
 As an user you can edit publications, edit your profile and delete your account.
 
-There is a notification system with noty.
+There is a notification system with noty, and an email one for verifying registered users and recoverer the password.
 
 ## Design Description
 There's a video at start, control by cookies. The publications have 3D images, and the footer links use animate.css
