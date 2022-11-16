@@ -24,8 +24,8 @@ Symfony6 (easy-admin for the panel administration), Materialize, Sass, jQuery, J
 
 ## Usage
 
-To install: composer install
+To install: composer install, yarn install
 
-To compile the Sass: npm run watch
+To compile the Sass on the public folder: npm run watch | yarn watch
 
 To run the server on local: symfony server:start
